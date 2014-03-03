@@ -13,16 +13,20 @@ $app['debug'] = true;
 $app->register(
     new Providers\ConfigServiceProvider(__DIR__ . "/config/config.yml")
 );
+
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../src/Views',
 ));
 
-$admin = $app['controllers_factory'];
-$admin->get('/', 'Controllers\Admin\LoginController::form');
-$admin->get('/people', 'Controllers\Admin\PeopleController::index');
-$admin->get('/people/add', 'Controllers\Admin\People::form');
-$admin->get('/people/edit/{id}', 'Controllers\Admin\People::form');
+$login = $app['controllers_factory'];
+$login->get('/', 'Controllers\Admin\LoginController::form');
 
-$app->mount('/admin', $admin);
+$people = $app['controllers_factory'];
+$people->get('/', 'Controllers\Admin\PeopleController::index');
+$people->get('/add', 'Controllers\Admin\PeopleController::form');
+$people->get('/edit/{id}', 'Controllers\Admin\PeopleController::form');
+
+$app->mount('/', $login);
+$app->mount('/people', $people);
 
 return $app;

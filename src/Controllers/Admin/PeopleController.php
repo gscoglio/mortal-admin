@@ -15,5 +15,10 @@ class PeopleController
             'name' => 'asd',
         ));
     }
+    
+    public function form(Application $app)
+    {
+        return $app['twig']->render('Admin/People/form.twig');
+    }
 
 }
