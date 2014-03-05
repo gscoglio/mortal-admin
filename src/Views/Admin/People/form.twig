@@ -1,0 +1,100 @@
+{% extends "index.twig" %}
+
+{% block title %}Add People{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="page-header">
+            <h1>Agregar Persona al Mortal Contest</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="wikilink"> Link de Wikipedia </label>
+                        <div class="col-xs-9">
+                            <input type="text" id="wikilink" class="col-xs-10 col-sm-9">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="nombre"> Nombre </label>
+                        <div class="col-sm-9">
+                            <input type="text" id="nombre" class="col-xs-10 col-sm-5">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="apellido"> Apellido </label>
+                        <div class="col-sm-9">
+                            <input type="text" id="apellido" class="col-xs-10 col-sm-5">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="genero">Genero</label>
+                        <div class="col-sm-2">
+                            <select class="form-control" id="genero">
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="nacimiento">Fecha de nacimiento</label>
+                        <div class="col-xs-3">
+                            <div class="input-group input-group-sm">
+                                <input type="text" id="datepicker" class="form-control hasDatepicker">
+                                <span class="input-group-addon">
+                                        <i class="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="muerte">Fecha de muerte</label>
+                        <div class="col-xs-3">
+                            <div class="input-group input-group-sm">
+                                <input type="text" id="datepicker" class="form-control hasDatepicker">
+                                <span class="input-group-addon">
+                                        <i class="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="visible">Visible</label>
+                        <div class="col-xs-3">
+                            <label>
+                                <input name="visible" class="ace ace-switch ace-switch-2" type="checkbox">
+                                <span class="lbl"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="nacionalidad">Nacionalidad</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="nacionalidad">
+                                    <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="form-field-tags">Tags</label>
+                        <div class="col-sm-9">
+                            <div class="tags">
+                                <span class="tag">Tag Input Control<button type="button" class="close">×</button></span>
+                                <input type="text" name="tags" id="form-field-tags" value="Tag Input Control" placeholder="Enter tags ..." style="display: none;">
+                                <input type="text" placeholder="Enter tags ...">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="clearfix form-actions">
+            <div class="col-md-offset-1 col-md-9">
+                <button class="btn btn-info" type="button">
+                    <i class="icon-ok bigger-110"></i>
+                    Agregar
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
