@@ -18,8 +18,22 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../src/Views',
 ));
 
+$app->register(new Silex\Provider\SecurityServiceProvider());
+
+
+$app['security.firewalls'] = array(
+    'admin' => array(
+        'pattern' => '^/',
+        'http' => true,
+        'users' => array(
+            // raw password is foo
+            'ale' => array('ROLE_ADMIN', 'dVU2sZFLXrtFaePZ5srMbYJXPQ8QtbQUMFPlfJFpQROiR846+HyNrmrIN8cx/toJl7OaIU5Rdj3XgvKSdgMmyQ=='),
+        ),
+    ),
+);
+
 $login = $app['controllers_factory'];
-$login->get('/', 'Controllers\Admin\LoginController::form');
+$login->get('/', 'Controllers\Admin\DashboardController::index');
 
 $people = $app['controllers_factory'];
 $people->get('/', 'Controllers\Admin\PeopleController::index');
